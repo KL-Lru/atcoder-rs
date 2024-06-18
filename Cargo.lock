@@ -11,6 +11,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "abc358"
+version = "0.1.0"
+dependencies = [
+ "proconio",
+ "test-utils",
+]
+
+[[package]]
 name = "anstyle"
 version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
