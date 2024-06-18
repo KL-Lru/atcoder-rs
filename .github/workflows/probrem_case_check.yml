@@ -1,0 +1,25 @@
+name: Case Check
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        # fetch all histories of all branches for diff
+        with:
+          fetch-depth: 0 
+      - name: Test
+        run: |
+          set +o pipefail
+          changed_dirs=$(git diff origin/${GITHUB_BASE_REF}..origin/${GITHUB_HEAD_REF} --name-only -- '*.rs' | xargs dirname | sed 's/\/src.*//g' | sed 's/\/tests.*//g' | sort | uniq)
+          for C_dir in $changed_dirs; do
+            cargo test --manifest-path $C_dir/Cargo.toml --test '*'
+          done
+          set -o pipefail
