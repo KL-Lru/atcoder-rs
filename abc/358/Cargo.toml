@@ -11,9 +11,9 @@ proconio = { workspace = true }
 [dev-dependencies]
 test-utils = { workspace = true }
 
-# [[bin]]
-# name = "a"
-# path = "src/a.rs"
+[[bin]]
+name = "a"
+path = "src/a.rs"
 
 # [[bin]]
 # name = "b"
