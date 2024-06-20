@@ -27,9 +27,9 @@ path = "src/c.rs"
 name = "d"
 path = "src/d.rs"
 
-# [[bin]]
-# name = "e"
-# path = "src/e.rs"
+[[bin]]
+name = "e"
+path = "src/e.rs"
 
 # [[bin]]
 # name = "f"
