@@ -31,6 +31,6 @@ path = "src/d.rs"
 name = "e"
 path = "src/e.rs"
 
-# [[bin]]
-# name = "f"
-# path = "src/f.rs"
+[[bin]]
+name = "f"
+path = "src/f.rs"
