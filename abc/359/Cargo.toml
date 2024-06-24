@@ -15,9 +15,9 @@ test-utils = { workspace = true }
 name = "a"
 path = "src/a.rs"
 
-# [[bin]]
-# name = "b"
-# path = "src/b.rs"
+[[bin]]
+name = "b"
+path = "src/b.rs"
 
 # [[bin]]
 # name = "c"
