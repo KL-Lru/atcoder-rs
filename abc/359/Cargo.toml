@@ -1,0 +1,40 @@
+[package]
+name = "abc359"
+version.workspace = true
+edition.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+proconio = { workspace = true }
+
+[dev-dependencies]
+test-utils = { workspace = true }
+
+[[bin]]
+name = "a"
+path = "src/a.rs"
+
+[[bin]]
+name = "b"
+path = "src/b.rs"
+
+[[bin]]
+name = "c"
+path = "src/c.rs"
+
+# [[bin]]
+# name = "d"
+# path = "src/d.rs"
+
+# [[bin]]
+# name = "e"
+# path = "src/e.rs"
+
+# [[bin]]
+# name = "f"
+# path = "src/f.rs"
+
+# [[bin]]
+# name = "g"
+# path = "src/g.rs"
