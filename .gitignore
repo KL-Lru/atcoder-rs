@@ -1,3 +1,4 @@
 target
 lib.rs
+Cargo.lock
 !lib/docgen/src/lib.rs
