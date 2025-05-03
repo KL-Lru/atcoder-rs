@@ -4,7 +4,7 @@ edition = "2021"
 rust-version = "1.70.0"
 
 [workspace]
-members = ["lib/docgen"]
+members = ["lib/docgen", "abc_*"]
 resolver = "2"
 
 # refs https://img.atcoder.jp/file/language-update/language-list.html
@@ -71,6 +71,5 @@ proconio = { version = "=0.4.5" }
 text_io = { version = "=0.1.12" }
 rustc-hash = { version = "=1.1.0" }
 smallvec = { version = "=1.11.0" }
-
 
 docgen = { path = "lib/docgen" }
