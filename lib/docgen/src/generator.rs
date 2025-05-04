@@ -15,9 +15,13 @@ pub fn binary_list() -> Vec<String> {
 
 pub fn generate_lib_rs() {
     let lib_file = path::lib_file();
-    let contents = r#"include!(concat!(env!("OUT_DIR"), "/modules.rs"));"#;
+    let contents = [
+        no_source_attributes(),
+        readme_attributes(),
+        module_magic(),
+    ];
 
-    io::write_file(&lib_file, contents);
+    io::write_file(&lib_file, &contents.join("\n"));
 }
 
 pub fn generate_module_rs() {
@@ -52,8 +56,26 @@ fn document_attributes(binary: &str) -> String {
     .join("\n")
 }
 
+fn module_magic() -> String {
+    r#"include!(concat!(env!("OUT_DIR"), "/modules.rs"));"#.to_string()
+}
+
+fn no_source_attributes() -> String {
+    r#"#![doc(html_no_source)]"#.to_string()
+}
+
 fn cfg_doc_attribute(doc: &str) -> String {
     format!("#![cfg_attr(doc, doc = {doc})]")
+}
+
+fn readme_attributes() -> String {
+    let readme_file = path::manifest_dir().join("README.md");
+
+    if !readme_file.exists() {
+        return String::new();
+    }
+
+    cfg_doc_attribute(&format!("include_str!(\"{}\")", readme_file.display()))
 }
 
 fn markdown_attributes(binary: &str) -> String {
