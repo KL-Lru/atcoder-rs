@@ -15,11 +15,7 @@ pub fn binary_list() -> Vec<String> {
 
 pub fn generate_lib_rs() {
     let lib_file = path::lib_file();
-    let contents = [
-        no_source_attributes(),
-        readme_attributes(),
-        module_magic(),
-    ];
+    let contents = [no_source_attributes(), readme_attributes(), module_magic()];
 
     io::write_file(&lib_file, &contents.join("\n"));
 }
@@ -41,7 +37,7 @@ pub fn generate_binary_module_rs(binary: &str) {
         return;
     }
 
-    let contents = [document_attributes(binary), io::read_file(&binary_file)].join("\n");
+    let contents = document_attributes(binary);
 
     io::write_file(&path::out_binary_file(binary), &contents);
 }
