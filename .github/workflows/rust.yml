@@ -33,7 +33,7 @@ jobs:
       - name: Build Docs
         run: |
           RUSTFLAGS="-Awarnings" cargo build --quiet
-          RUSTDOCFLAGS="-Zunstable-options --default-theme ayu --enable-index-page" cargo +nightly doc --lib --no-deps
+          RUSTDOCFLAGS="-Zunstable-options --default-theme ayu --html-in-header custom/katex.html --enable-index-page" cargo +nightly doc --lib --no-deps
 
       - name: Upload Docs
         uses: actions/upload-pages-artifact@v3

@@ -1,6 +1,6 @@
 @docgen *args='': clean
   RUSTFLAGS="-Awarnings" cargo build --quiet
-  RUSTDOCFLAGS="--default-theme ayu --enable-index-page -Zunstable-options" cargo +nightly doc --lib --no-deps {{args}}
+  RUSTDOCFLAGS="--default-theme ayu --enable-index-page --html-in-header custom/katex.html -Zunstable-options" cargo +nightly doc --lib --no-deps {{args}}
 
 @docserve:
   npx browser-sync start --server "target/doc/" --files "target/doc/" --open --watch
