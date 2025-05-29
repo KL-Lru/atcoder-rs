@@ -1,0 +1,10 @@
+[package]
+name = "indexgen"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+serde = { version = "1" }
+tera = { version = "1" }
+cargo_metadata = { version = "0.20" }
