@@ -1,5 +1,5 @@
 @docgen *args='': clean build generate_index
-  RUSTDOCFLAGS="--default-theme ayu --enable-index-page --index-page custom/index.md --markdown-css top.css --markdown-no-toc --html-in-header custom/katex.html -Zunstable-options" cargo +nightly doc --lib --no-deps {{args}}
+  RUSTDOCFLAGS="--default-theme ayu --extend-css custom/extend.css --enable-index-page --index-page custom/index.md --markdown-css top.css --markdown-no-toc --html-in-header custom/katex.html -Zunstable-options" cargo +nightly doc --lib --no-deps {{args}}
   cp custom/top.css target/doc/
 
 @docserve:

@@ -34,7 +34,7 @@ jobs:
         run: |
           RUSTFLAGS="-Awarnings" cargo build --quiet
           cargo run --bin indexgen
-          RUSTDOCFLAGS="--default-theme ayu --enable-index-page --index-page custom/index.md --markdown-css top.css --markdown-no-toc --html-in-header custom/katex.html -Z unstable-options" cargo +nightly doc --lib --no-deps
+          RUSTDOCFLAGS="--default-theme ayu --extend-css custom/extend.css --enable-index-page --index-page custom/index.md --markdown-css top.css --markdown-no-toc --html-in-header custom/katex.html -Z unstable-options" cargo +nightly doc --lib --no-deps
           cp custom/top.css target/doc/
 
       - name: Upload Docs
