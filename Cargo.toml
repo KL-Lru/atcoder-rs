@@ -4,7 +4,7 @@ edition = "2021"
 rust-version = "1.70.0"
 
 [workspace]
-members = ["lib/docgen", "abc_*"]
+members = ["lib/*", "abc_*"]
 resolver = "2"
 
 # refs https://img.atcoder.jp/file/language-update/language-list.html
