@@ -1,6 +1,6 @@
-@docgen *args='': clean
-  RUSTFLAGS="-Awarnings" cargo build --quiet
-  RUSTDOCFLAGS="--default-theme ayu --enable-index-page --html-in-header custom/katex.html -Zunstable-options" cargo +nightly doc --lib --no-deps {{args}}
+@docgen *args='': clean build generate_index
+  RUSTDOCFLAGS="--default-theme ayu --enable-index-page --index-page custom/index.md --markdown-css top.css --markdown-no-toc --html-in-header custom/katex.html -Zunstable-options" cargo +nightly doc --lib --no-deps {{args}}
+  cp custom/top.css target/doc/
 
 @docserve:
   npx browser-sync start --server "target/doc/" --files "target/doc/" --open --watch
@@ -20,3 +20,9 @@
 @clean:
   cargo clean
   find . -name lib.rs | grep -v lib/ | xargs --no-run-if-empty rm
+
+@build:
+  RUSTFLAGS="-Awarnings" cargo build --quiet
+
+@generate_index:
+  cargo run --bin indexgen
