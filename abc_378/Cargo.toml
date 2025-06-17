@@ -9,6 +9,7 @@ build = "../build.rs"
 
 [dependencies]
 proconio = { workspace = true }
+itertools = { workspace = true }
 
 [build-dependencies]
 docgen = { workspace = true }
