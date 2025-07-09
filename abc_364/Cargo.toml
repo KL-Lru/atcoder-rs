@@ -9,6 +9,7 @@ build = "../build.rs"
 
 [dependencies]
 proconio = { workspace = true }
+superslice = { workspace = true }
 
 [build-dependencies]
 docgen = { workspace = true }
